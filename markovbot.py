@@ -1,13 +1,14 @@
 import json
 from requests_oauthlib import OAuth1Session
 from GenerateText import GenerateText
+import random
 
 def markovbot():
     keysfile = open('keys.json')
     keys = json.load(keysfile)
     oath = create_oath_session(keys)
 
-    generator = GenerateText(3)
+    generator = GenerateText(random.randint(1,3))
 
     tweetmarkovstring(oath, generator)
 
