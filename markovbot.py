@@ -24,7 +24,7 @@ def create_oath_session(oath_key_dict):
 def tweetmarkovstring(oath, generator):
     url = 'https://api.twitter.com/1.1/statuses/update.json'
     markovstring = generator.generate()
-    params = {'status': '[偽者です]' + markovstring}
+    params = {'status': markovstring}
     req = oath.post(url, params)
 
     if req.status_code == 200:
